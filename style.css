@@ -14,67 +14,76 @@ body {
 .calculator {
   background-color: #0c3235;
   margin-top: 5%;
+  padding: 5%;
   box-sizing: border-box;
   border-radius: 25px;
   color: white;
   font-family: 'Nunito', sans-serif;
   display: grid;
-}
-
-@media (min-width: 320px) {
-  .calculator {
-  padding: 25pt;  
   grid-template-columns: 1fr;
-  grid-template-rows: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas: 
     "number" 
     "operation"
     "footer"
     "result";
   }
+}
 
-  .number-input {
+.number-input {
   grid-area: number;
+}
+
+.num1 {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  text-align: center;
+}
+
+.num2 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+@media (min-width: 320px) {
+  .number-input {
+    display: flex;
+    flex-direction: column;
   }
 
-  #result {
-  grid-area: result;
-  color: rgb(201, 247, 36);
+  .num1 {
+  padding-bottom: 10px;
+  }
+
+  .num2 {
+    padding-bottom: 10px;
+  }
+
+  .operation {
+    padding-top: 10px;
   }
 }
 
 @media (min-width: 576px) {
-  .calculator {   
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 2fr 1fr;
-  grid-template-areas: 
-    "num1 num2"
-    "operation operation"
-    "footer result"
+  .number-input {
+  display: flex;  
+  flex-direction: row;
   }
 
   .num1 {
-    grid-area: num1;
+    padding-right: 10px;
   }
 
   .num2 {
-    grid-area: num2;
-  }
-
-  #result {
-  grid-area: footer;
-  color: rgb(201, 247, 36);
+    padding-left: 10px;
   }
 }
 
 input[type=number] {
-  width: 75%;
-  padding: 10px 10px;
-  border-radius: 5px;
-  border: none;
+padding: 10px 10px;
+border-radius: 5px;
+border: none;
 }
 
 .operation {
@@ -83,12 +92,19 @@ display: flex;
 flex-direction: row;
 flex-wrap: wrap;
 justify-content: center;
+padding-bottom: 10px;
+border-bottom: solid 1px rgba(128, 172, 119, 0.363);
 }
 
 .footer {
 display: flex;
 justify-content: center;
 grid-area: footer;
+}
+
+#result {
+grid-area: result;
+color: rgb(201, 247, 36);
 }
 
 button {
